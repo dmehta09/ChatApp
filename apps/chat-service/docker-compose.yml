@@ -18,12 +18,6 @@ services:
       KAFKA_CLIENT_ID: ${KAFKA_CLIENT_ID}
       KAFKA_GROUP_ID: ${KAFKA_GROUP_ID}
       DB_URL: mongodb://${DB_USER}:${DB_PASSWORD}@db:27017/${DB_NAME}?authSource=admin
-      SAML_ENTRY_POINT: ${SAML_ENTRY_POINT}
-      SAML_ISSUER: ${SAML_ISSUER}
-      SAML_DECRYPT_KEY: ${SAML_DECRYPT_KEY}
-      SAML_PRIVATE_CERT: ${SAML_PRIVATE_CERT}
-      SAML_PUBLIC_CERT: ${SAML_PUBLIC_CERT}
-      SAML_REDIRECT_CALLBACK_URL: ${SAML_REDIRECT_CALLBACK_URL}
     depends_on:
       - redis_broker
     restart: on-failure

@@ -34,16 +34,9 @@ import { ProductService } from "../product.service";
 export class ProductResolverBase {
   constructor(
     protected readonly service: ProductService,
-    protected readonly rolesBuilder: nestAccessControl.RolesBuilder,
     protected readonly rolesBuilder: nestAccessControl.RolesBuilder
   ) {}
 
-  @graphql.Query(() => MetaQueryPayload)
-  @nestAccessControl.UseRoles({
-    resource: "Product",
-    action: "read",
-    possession: "any",
-  })
   @graphql.Query(() => MetaQueryPayload)
   @nestAccessControl.UseRoles({
     resource: "Product",
@@ -60,13 +53,7 @@ export class ProductResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.Query(() => [Product])
-  @nestAccessControl.UseRoles({
-    resource: "Product",
-    action: "read",
-    possession: "any",
-  })
   @nestAccessControl.UseRoles({
     resource: "Product",
     action: "read",
@@ -79,13 +66,7 @@ export class ProductResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.Query(() => Product, { nullable: true })
-  @nestAccessControl.UseRoles({
-    resource: "Product",
-    action: "read",
-    possession: "own",
-  })
   @nestAccessControl.UseRoles({
     resource: "Product",
     action: "read",
@@ -102,13 +83,7 @@ export class ProductResolverBase {
   }
 
   @common.UseInterceptors(AclValidateRequestInterceptor)
-  @common.UseInterceptors(AclValidateRequestInterceptor)
   @graphql.Mutation(() => Product)
-  @nestAccessControl.UseRoles({
-    resource: "Product",
-    action: "create",
-    possession: "any",
-  })
   @nestAccessControl.UseRoles({
     resource: "Product",
     action: "create",
@@ -124,13 +99,7 @@ export class ProductResolverBase {
   }
 
   @common.UseInterceptors(AclValidateRequestInterceptor)
-  @common.UseInterceptors(AclValidateRequestInterceptor)
   @graphql.Mutation(() => Product)
-  @nestAccessControl.UseRoles({
-    resource: "Product",
-    action: "update",
-    possession: "any",
-  })
   @nestAccessControl.UseRoles({
     resource: "Product",
     action: "update",
@@ -160,11 +129,6 @@ export class ProductResolverBase {
     action: "delete",
     possession: "any",
   })
-  @nestAccessControl.UseRoles({
-    resource: "Product",
-    action: "delete",
-    possession: "any",
-  })
   async deleteProduct(
     @graphql.Args() args: DeleteProductArgs
   ): Promise<Product | null> {
@@ -181,13 +145,7 @@ export class ProductResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
-  @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.ResolveField(() => [Order], { name: "orders" })
-  @nestAccessControl.UseRoles({
-    resource: "Order",
-    action: "read",
-    possession: "any",
-  })
   @nestAccessControl.UseRoles({
     resource: "Order",
     action: "read",

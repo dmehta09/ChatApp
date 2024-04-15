@@ -23,14 +23,9 @@ import { AuthModule } from "./auth/auth.module";
 
 import { LoggerModule } from "./logger/logger.module";
 
-import { ACLModule } from "./auth/acl.module";
-import { AuthModule } from "./auth/auth.module";
-
 @Module({
   controllers: [],
   imports: [
-    ACLModule,
-    AuthModule,
     KafkaModule,
     LoggerModule,
     ACLModule,

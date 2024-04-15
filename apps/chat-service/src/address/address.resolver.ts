@@ -13,10 +13,8 @@ export class AddressResolver extends AddressResolverBase {
   constructor(
     protected readonly service: AddressService,
     @nestAccessControl.InjectRolesBuilder()
-    protected readonly rolesBuilder: nestAccessControl.RolesBuilder,
-    @nestAccessControl.InjectRolesBuilder()
     protected readonly rolesBuilder: nestAccessControl.RolesBuilder
   ) {
-    super(service, rolesBuilder, rolesBuilder);
+    super(service, rolesBuilder);
   }
 }

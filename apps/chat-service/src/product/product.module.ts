@@ -5,12 +5,7 @@ import { ProductService } from "./product.service";
 import { ProductResolver } from "./product.resolver";
 
 @Module({
-  imports: [
-    ProductModuleBase,
-    forwardRef(() => AuthModule),
-    forwardRef(() => AuthModule),
-  ],
-
+  imports: [ProductModuleBase, forwardRef(() => AuthModule)],
   providers: [ProductService, ProductResolver],
   exports: [ProductService],
 })

@@ -5,7 +5,6 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
-import { samlAuthProvider } from "./auth-provider/ra-auth-saml";
 import { UserList } from "./user/UserList";
 import { UserCreate } from "./user/UserCreate";
 import { UserEdit } from "./user/UserEdit";
@@ -51,7 +50,7 @@ const App = (): React.ReactElement => {
       <Admin
         title={"Chat Service"}
         dataProvider={dataProvider}
-        authProvider={samlAuthProvider}
+        authProvider={httpAuthProvider}
         theme={theme}
         dashboard={Dashboard}
         loginPage={Login}

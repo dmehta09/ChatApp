@@ -13,10 +13,8 @@ export class ProductResolver extends ProductResolverBase {
   constructor(
     protected readonly service: ProductService,
     @nestAccessControl.InjectRolesBuilder()
-    protected readonly rolesBuilder: nestAccessControl.RolesBuilder,
-    @nestAccessControl.InjectRolesBuilder()
     protected readonly rolesBuilder: nestAccessControl.RolesBuilder
   ) {
-    super(service, rolesBuilder, rolesBuilder);
+    super(service, rolesBuilder);
   }
 }

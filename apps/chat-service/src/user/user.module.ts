@@ -5,11 +5,7 @@ import { UserService } from "./user.service";
 import { UserResolver } from "./user.resolver";
 
 @Module({
-  imports: [
-    UserModuleBase,
-    forwardRef(() => AuthModule),
-    forwardRef(() => AuthModule),
-  ],
+  imports: [UserModuleBase, forwardRef(() => AuthModule)],
   providers: [UserService, UserResolver],
   exports: [UserService],
 })

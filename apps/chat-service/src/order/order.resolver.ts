@@ -13,10 +13,8 @@ export class OrderResolver extends OrderResolverBase {
   constructor(
     protected readonly service: OrderService,
     @nestAccessControl.InjectRolesBuilder()
-    protected readonly rolesBuilder: nestAccessControl.RolesBuilder,
-    @nestAccessControl.InjectRolesBuilder()
     protected readonly rolesBuilder: nestAccessControl.RolesBuilder
   ) {
-    super(service, rolesBuilder, rolesBuilder);
+    super(service, rolesBuilder);
   }
 }

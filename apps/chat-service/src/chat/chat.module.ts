@@ -5,11 +5,7 @@ import { ChatService } from "./chat.service";
 import { ChatResolver } from "./chat.resolver";
 
 @Module({
-  imports: [
-    ChatModuleBase,
-    forwardRef(() => AuthModule),
-    forwardRef(() => AuthModule),
-  ],
+  imports: [ChatModuleBase, forwardRef(() => AuthModule)],
   providers: [ChatService, ChatResolver],
   exports: [ChatService],
 })
