@@ -29,7 +29,7 @@ import { ChatList } from "./chat/ChatList";
 import { ChatCreate } from "./chat/ChatCreate";
 import { ChatEdit } from "./chat/ChatEdit";
 import { ChatShow } from "./chat/ChatShow";
-import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
+import { httpAuthProvider } from "./auth-provider/ra-auth-http";
 
 const App = (): React.ReactElement => {
   const [dataProvider, setDataProvider] = useState<DataProvider | null>(null);
@@ -50,7 +50,7 @@ const App = (): React.ReactElement => {
       <Admin
         title={"Chat Service"}
         dataProvider={dataProvider}
-        authProvider={jwtAuthProvider}
+        authProvider={httpAuthProvider}
         theme={theme}
         dashboard={Dashboard}
         loginPage={Login}

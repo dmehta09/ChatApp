@@ -6,6 +6,7 @@ export const ChatCreate = (props: CreateProps): React.ReactElement => {
     <Create {...props}>
       <SimpleForm>
         <TextInput label="message" source="message" />
+        <TextInput label="sessionId" source="sessionId" />
       </SimpleForm>
     </Create>
   );

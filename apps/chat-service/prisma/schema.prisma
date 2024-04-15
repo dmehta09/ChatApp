@@ -15,6 +15,7 @@ model User {
   lastName  String?
   password  String
   roles     Json
+  sessionId String?
   updatedAt DateTime @updatedAt
   username  String   @unique
 }
@@ -71,5 +72,6 @@ model Chat {
   createdAt DateTime @default(now())
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
   message   String?
+  sessionId String?
   updatedAt DateTime @updatedAt
 }

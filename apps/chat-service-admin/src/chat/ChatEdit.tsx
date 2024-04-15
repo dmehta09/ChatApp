@@ -6,6 +6,7 @@ export const ChatEdit = (props: EditProps): React.ReactElement => {
     <Edit {...props}>
       <SimpleForm>
         <TextInput label="message" source="message" />
+        <TextInput label="sessionId" source="sessionId" />
       </SimpleForm>
     </Edit>
   );

@@ -76,6 +76,17 @@ class User {
   roles!: JsonValue;
 
   @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  sessionId!: string | null;
+
+  @ApiProperty({
     required: true,
   })
   @IsDate()
