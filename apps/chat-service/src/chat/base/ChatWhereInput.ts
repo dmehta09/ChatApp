@@ -39,6 +39,17 @@ class ChatWhereInput {
     nullable: true,
   })
   message?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  sessionId?: StringNullableFilter;
 }
 
 export { ChatWhereInput as ChatWhereInput };

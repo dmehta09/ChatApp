@@ -13,8 +13,10 @@ export class ChatResolver extends ChatResolverBase {
   constructor(
     protected readonly service: ChatService,
     @nestAccessControl.InjectRolesBuilder()
+    protected readonly rolesBuilder: nestAccessControl.RolesBuilder,
+    @nestAccessControl.InjectRolesBuilder()
     protected readonly rolesBuilder: nestAccessControl.RolesBuilder
   ) {
-    super(service, rolesBuilder);
+    super(service, rolesBuilder, rolesBuilder);
   }
 }

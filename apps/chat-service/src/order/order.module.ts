@@ -5,7 +5,12 @@ import { OrderService } from "./order.service";
 import { OrderResolver } from "./order.resolver";
 
 @Module({
-  imports: [OrderModuleBase, forwardRef(() => AuthModule)],
+  imports: [
+    OrderModuleBase,
+    forwardRef(() => AuthModule),
+    forwardRef(() => AuthModule),
+  ],
+
   providers: [OrderService, OrderResolver],
   exports: [OrderService],
 })

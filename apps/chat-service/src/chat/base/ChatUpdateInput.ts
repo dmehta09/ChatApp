@@ -25,6 +25,17 @@ class ChatUpdateInput {
     nullable: true,
   })
   message?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  sessionId?: string | null;
 }
 
 export { ChatUpdateInput as ChatUpdateInput };

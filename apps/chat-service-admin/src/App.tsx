@@ -5,6 +5,7 @@ import { theme } from "./theme/theme";
 import Login from "./Login";
 import "./App.scss";
 import Dashboard from "./pages/Dashboard";
+import { samlAuthProvider } from "./auth-provider/ra-auth-saml";
 import { UserList } from "./user/UserList";
 import { UserCreate } from "./user/UserCreate";
 import { UserEdit } from "./user/UserEdit";
@@ -29,7 +30,7 @@ import { ChatList } from "./chat/ChatList";
 import { ChatCreate } from "./chat/ChatCreate";
 import { ChatEdit } from "./chat/ChatEdit";
 import { ChatShow } from "./chat/ChatShow";
-import { jwtAuthProvider } from "./auth-provider/ra-auth-jwt";
+import { httpAuthProvider } from "./auth-provider/ra-auth-http";
 
 const App = (): React.ReactElement => {
   const [dataProvider, setDataProvider] = useState<DataProvider | null>(null);
@@ -50,7 +51,7 @@ const App = (): React.ReactElement => {
       <Admin
         title={"Chat Service"}
         dataProvider={dataProvider}
-        authProvider={jwtAuthProvider}
+        authProvider={samlAuthProvider}
         theme={theme}
         dashboard={Dashboard}
         loginPage={Login}

@@ -15,6 +15,7 @@ export const ChatList = (props: ListProps): React.ReactElement => {
         <DateField source="createdAt" label="Created At" />
         <TextField label="ID" source="id" />
         <TextField label="message" source="message" />
+        <TextField label="sessionId" source="sessionId" />
         <DateField source="updatedAt" label="Updated At" />
       </Datagrid>
     </List>

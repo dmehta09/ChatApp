@@ -5,7 +5,12 @@ import { AddressService } from "./address.service";
 import { AddressResolver } from "./address.resolver";
 
 @Module({
-  imports: [AddressModuleBase, forwardRef(() => AuthModule)],
+  imports: [
+    AddressModuleBase,
+    forwardRef(() => AuthModule),
+    forwardRef(() => AuthModule),
+  ],
+
   providers: [AddressService, AddressResolver],
   exports: [AddressService],
 })

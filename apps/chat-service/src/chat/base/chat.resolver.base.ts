@@ -32,9 +32,16 @@ import { ChatService } from "../chat.service";
 export class ChatResolverBase {
   constructor(
     protected readonly service: ChatService,
+    protected readonly rolesBuilder: nestAccessControl.RolesBuilder,
     protected readonly rolesBuilder: nestAccessControl.RolesBuilder
   ) {}
 
+  @graphql.Query(() => MetaQueryPayload)
+  @nestAccessControl.UseRoles({
+    resource: "Chat",
+    action: "read",
+    possession: "any",
+  })
   @graphql.Query(() => MetaQueryPayload)
   @nestAccessControl.UseRoles({
     resource: "Chat",
@@ -51,7 +58,13 @@ export class ChatResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.Query(() => [Chat])
+  @nestAccessControl.UseRoles({
+    resource: "Chat",
+    action: "read",
+    possession: "any",
+  })
   @nestAccessControl.UseRoles({
     resource: "Chat",
     action: "read",
@@ -62,7 +75,13 @@ export class ChatResolverBase {
   }
 
   @common.UseInterceptors(AclFilterResponseInterceptor)
+  @common.UseInterceptors(AclFilterResponseInterceptor)
   @graphql.Query(() => Chat, { nullable: true })
+  @nestAccessControl.UseRoles({
+    resource: "Chat",
+    action: "read",
+    possession: "own",
+  })
   @nestAccessControl.UseRoles({
     resource: "Chat",
     action: "read",
@@ -77,7 +96,13 @@ export class ChatResolverBase {
   }
 
   @common.UseInterceptors(AclValidateRequestInterceptor)
+  @common.UseInterceptors(AclValidateRequestInterceptor)
   @graphql.Mutation(() => Chat)
+  @nestAccessControl.UseRoles({
+    resource: "Chat",
+    action: "create",
+    possession: "any",
+  })
   @nestAccessControl.UseRoles({
     resource: "Chat",
     action: "create",
@@ -91,7 +116,13 @@ export class ChatResolverBase {
   }
 
   @common.UseInterceptors(AclValidateRequestInterceptor)
+  @common.UseInterceptors(AclValidateRequestInterceptor)
   @graphql.Mutation(() => Chat)
+  @nestAccessControl.UseRoles({
+    resource: "Chat",
+    action: "update",
+    possession: "any",
+  })
   @nestAccessControl.UseRoles({
     resource: "Chat",
     action: "update",
@@ -114,6 +145,11 @@ export class ChatResolverBase {
   }
 
   @graphql.Mutation(() => Chat)
+  @nestAccessControl.UseRoles({
+    resource: "Chat",
+    action: "delete",
+    possession: "any",
+  })
   @nestAccessControl.UseRoles({
     resource: "Chat",
     action: "delete",
