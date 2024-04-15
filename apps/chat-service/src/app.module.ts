@@ -12,6 +12,7 @@ import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
 import { KafkaModule } from "./redis/kafka.module";
+import { MqttModule } from "./redis/mqtt.module";
 import { ServeStaticModule } from "@nestjs/serve-static";
 import { ServeStaticOptionsService } from "./serveStaticOptions.service";
 import { ConfigModule, ConfigService } from "@nestjs/config";
@@ -26,6 +27,7 @@ import { LoggerModule } from "./logger/logger.module";
 @Module({
   controllers: [],
   imports: [
+    MqttModule,
     KafkaModule,
     LoggerModule,
     ACLModule,
